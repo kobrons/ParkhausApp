@@ -3,6 +3,7 @@ package com.example.android.parkhausapp;
 import android.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,7 +17,10 @@ public class MainActivity extends AppCompatActivity {
 
         LinearLayout rootViewFull = (LinearLayout) findViewById(R.id.LayoutFullNumbers);
         LinearLayout rootViewHalf = (LinearLayout) findViewById(R.id.LayoutHalfNumbers);
-
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int displayHeight = displayMetrics.heightPixels - 600 ;
+        int displayWidth = displayMetrics.widthPixels;
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
 
@@ -36,11 +40,13 @@ public class MainActivity extends AppCompatActivity {
             stageViewHalf.setBackgroundResource(R.color.colorAccent);
 
             //-- Padding --//
-            stageViewFull.setPadding(50, 40, 50, 40);
-            stageViewHalf.setPadding(50, 40, 50, 40);
+            //stageViewFull.setPadding(50, 40, 50, 40);
+            //stageViewHalf.setPadding(50, 40, 50, 40);
+            stageViewFull.setPadding((displayWidth/4)-10 ,(displayHeight/18)-10, (displayWidth/4)-10, (displayHeight/18)-10);
+            stageViewHalf.setPadding((displayWidth/4)-10 ,(displayHeight/18)-10, (displayWidth/4)-10, (displayHeight/18)-10);
 
             //-- Margin --//
-            params.setMargins(50, 10, 50, 0);
+            params.setMargins(10, 10, 10, 0);
 
 
 
