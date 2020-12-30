@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int displayHeight = displayMetrics.heightPixels - 600 ;
         int displayWidth = displayMetrics.widthPixels;
+        int stageWidth = (displayWidth/4)-20;
+        int stageHeight = displayHeight/18;
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
 
@@ -42,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
             //-- Padding --//
             //stageViewFull.setPadding(50, 40, 50, 40);
             //stageViewHalf.setPadding(50, 40, 50, 40);
-            stageViewFull.setPadding((displayWidth/4)-10 ,(displayHeight/18)-10, (displayWidth/4)-10, (displayHeight/18)-10);
-            stageViewHalf.setPadding((displayWidth/4)-10 ,(displayHeight/18)-10, (displayWidth/4)-10, (displayHeight/18)-10);
+            stageViewFull.setPadding(stageWidth ,stageHeight, stageWidth, stageHeight);
+            stageViewHalf.setPadding(stageWidth ,stageHeight, stageWidth, stageHeight);
 
             //-- Margin --//
             params.setMargins(10, 10, 10, 0);
