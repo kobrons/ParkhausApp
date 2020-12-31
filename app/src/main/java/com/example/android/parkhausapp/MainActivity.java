@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -13,9 +14,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.layout_designer_test);
 
-        LinearLayout rootViewFull = (LinearLayout) findViewById(R.id.LayoutFullNumbers);
+        LinearLayout buttonLayout = (LinearLayout)findViewById(R.id.buttonLLayout);
+        for (int i = 0 ; i <= 5 ; i++){
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
+            Button myButton = new Button(this);
+            myButton.setId(i);
+            final int id = myButton.getId();
+            myButton.setText("Button" +id );
+            buttonLayout.addView(myButton, params);
+        }
+        /*LinearLayout rootViewFull = (LinearLayout) findViewById(R.id.LayoutFullNumbers);
         LinearLayout rootViewHalf = (LinearLayout) findViewById(R.id.LayoutHalfNumbers);
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -57,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             stageViewHalf.setLayoutParams(params);
             rootViewFull.addView(stageViewFull);
             rootViewHalf.addView(stageViewHalf);
-        }
+        }*/
 
     }
 }
